@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro pequeño mundo ❤️</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <audio id="musica" src="musica.mp3" loop preload="auto" autoplay></audio>
+
+    <div class="corazones" aria-hidden="true">
+        <span>♡</span><span>♥</span><span>♡</span>
+        <span>♥</span><span>♡</span><span>♥</span>
+    </div>
+<main>
+        <section id="inicio" class="vista activa">
+            <div class="escena">
+                <div class="texto-principal">
+                    <p class="pequeno">PARA MI PERSONA FAVORITA</p>
+                    <h1>Tú, yo<br>y nuestras<br>aventuras</h1>
+                    <p class="subtitulo">Feliz cumpleaños y feliz aniversario,<br>mi amor. ♡</p>
+                </div>
+
+                <div class="arbol">
+                    <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg"
+                         aria-label="Árbol animado con hojas y corazones">
+                        <g class="copa copa-1">
+                            <ellipse cx="250" cy="145" rx="155" ry="100"/>
+                            <ellipse cx="150" cy="210" rx="95" ry="80"/>
+                            <ellipse cx="350" cy="210" rx="95" ry="80"/>
+                            <ellipse cx="250" cy="235" rx="155" ry="95"/>
+                        </g>
+                        <g class="ramas">
+                            <path d="M250 570 C245 480 255 400 250 330
+                                     C245 270 190 245 135 190
+                                     M250 330 C290 270 350 240 385 175
+                                     M250 400 C205 355 145 340 100 290
+                                     M250 365 C305 330 355 320 410 275"
+                                  fill="none" stroke="#6b4657" stroke-width="28"
+                                  stroke-linecap="round"/>
+                            <path d="M250 400 C245 300 250 210 250 120"
+                                  fill="none" stroke="#684151" stroke-width="18"
+                                  stroke-linecap="round"/>
+                        </g>
+                        <g class="hojas">
+                            <circle cx="250" cy="100" r="38"/>
+                            <circle cx="190" cy="125" r="43"/>
+                            <circle cx="310" cy="125" r="43"/>
+                            <circle cx="130" cy="185" r="40"/>
+                            <circle cx="370" cy="185" r="40"/>
+                            <circle cx="250" cy="175" r="55"/>
+                            <circle cx="170" cy="230" r="48"/>
+                            <circle cx="330" cy="230" r="48"/>
+                            <circle cx="250" cy="255" r="55"/>
+                        </g>
+                        <g class="corazones-arbol">
+                            <text x="245" y="95">♡</text>
+                            <text x="165" y="160">♥</text>
+                            <text x="330" y="150">♡</text>
+                            <text x="110" y="220">♥</text>
+                            <text x="370" y="230">♡</text>
+                            <text x="250" y="210">♥</text>
+                            <text x="190" y="270">♡</text>
+                            <text x="310" y="275">♥</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <nav class="menu-arbol" aria-label="Recuerdos">
+                    <button class="boton-arbol" data-vista="historia"><span>♡</span><strong>Nuestra historia</strong></button>
+                    <button class="boton-arbol" data-vista="cumpleanos"><span>🎂</span><strong>Tu cumpleaños</strong></button>
+                    <button class="boton-arbol" data-vista="aniversario"><span>∞</span><strong>Nuestro aniversario</strong></button>
+                    <button class="boton-arbol" data-vista="recuerdos"><span>📷</span><strong>Nuestros recuerdos</strong></button>
+                    <button class="boton-arbol" data-vista="carta"><span>✉</span><strong>Una carta para ti</strong></button>
+                </nav>
+                <p class="instruccion">Elige un recuerdo de nuestra historia ♡</p>
+            </div>
+        </section>
+
+        <section id="historia" class="vista">
+            <article class="contenido">
+                <p class="fecha">UN RECUERDO DE NOSOTRAS</p>
+                <h2>Nuestra historia ♡</h2>
+                <div class="foto-dedicatoria"><img src="imagenes/nuestra-historia.jpg" alt="Fotografía de nosotras"></div>
+                <p class="dedicatoria"><p>
+Todo empezó el día de tu cumpleaños. Lo que parecía una fecha especial para ti
+terminó convirtiéndose también en el comienzo de la historia más bonita de mi vida.
+Desde aquel día hemos compartido risas, planes, discusiones, abrazos, momentos
+difíciles y muchísimos recuerdos que no cambiaría por nada.
+</p>
+
+<p>
+Han pasado 7 años desde que nuestras vidas se cruzaron, y todavía me parece
+increíble pensar que aquel día comenzó todo lo que hoy somos.
+</p>
+
+<p>
+Gracias por aparecer en mi vida y por convertir una fecha tan especial en
+nuestro propio aniversario. ❤️
+</p>
+
+Te quiero muchísimo. ❤️</p>
+                <button class="volver" data-vista="inicio">← Volver al árbol</button>
+            </article>
+        </section>
+
+        <section id="cumpleanos" class="vista">
+            <article class="contenido">
+                <p class="fecha">HOY CELEBRAMOS TU VIDA</p>
+                <h2>Feliz cumpleaños 🎂</h2>
+                <div class="foto-dedicatoria"><img src="imagenes/feliz-cumpleanos1.jpg" alt="Fotografía de nosotras"></div>
+                <p class="dedicatoria"><p>
+Hoy celebro tu vida, tu sonrisa, tu forma de ser y todas esas pequeñas cosas
+que te hacen única para mí.
+</p>
+
+<p>
+Pero también celebro la suerte de haberte conocido aquel día y de poder seguir
+compartiendo contigo tantos cumpleaños, tantos sueños y tantos momentos.
+</p>
+
+<p>
+Ojalá este nuevo año te traiga todo lo bonito que mereces. Yo quiero seguir
+a tu lado para verlo, para acompañarte y para hacerte feliz siempre que pueda.
+</p>
+
+<p>
+Feliz cumpleaños a la persona que, sin saberlo, terminó convirtiéndose en mi
+lugar favorito. Te quiero muchísimo. ❤️
+</p>
+                <button class="volver" data-vista="inicio">← Volver al árbol</button>
+            </article>
+        </section>
+
+        <section id="aniversario" class="vista">
+            <article class="contenido">
+                <p class="fecha">OTRO CAPÍTULO DE NUESTRA HISTORIA</p>
+                <h2>Feliz aniversario ∞</h2>
+                <div class="foto-dedicatoria"><img src="imagenes/nuestro-aniversario.jpg" alt="Fotografía de nosotras"></div>
+                <p class="dedicatoria"><p>
+Hoy no solo celebramos que nos conocimos. Celebramos 7 años de nosotras,
+de elegirnos, de aprender juntas y de seguir construyendo nuestra historia.
+</p>
+
+<p>
+Siete años llenos de momentos que se han quedado para siempre en mi memoria.
+Algunos fáciles, otros más complicados, pero todos importantes porque los he
+vivido contigo.
+</p>
+
+<p>
+Si pudiera volver al día en que nos conocimos, volvería a elegirte sin pensarlo.
+Y si la vida me diera la oportunidad de empezar de nuevo, volvería a querer que
+fueras tú.
+</p>
+
+<p>
+Te elegiría una y otra vez. ❤️</p>
+                <button class="volver" data-vista="inicio">← Volver al árbol</button>
+            </article>
+        </section>
+
+        <section id="recuerdos" class="vista">
+            <article class="contenido">
+                <p class="fecha">MOMENTOS QUE GUARDO</p>
+                <h2>Nuestros recuerdos 📷</h2>
+                <div class="galeria">
+                    <img src="imagenes/nuestros-recuerdos.jpg" alt="Recuerdo 1">
+                    <img src="imagenes/nuestros-recuerdos1.jpg" alt="Recuerdo 2">
+                    <img src="imagenes/nuestra-familia1.jpg" alt="Recuerdo 3">
+                </div>
+                <p class="dedicatoria"><p>
+Si tuviera que elegir mis momentos favoritos, no sabría por cuál empezar.
+Están nuestras risas, nuestros viajes, nuestras conversaciones, nuestros abrazos,
+las tardes juntas y todas esas cosas aparentemente pequeñas que contigo se
+convierten en recuerdos enormes.
+</p>
+
+<p>
+Cada fotografía guarda un instante, pero también guarda una parte de lo que
+somos. Y cuando miro atrás, me doy cuenta de que mi vida está llena de momentos
+bonitos porque tú formas parte de ellos.
+</p>
+
+<p>
+Quiero seguir llenando nuestra historia de recuerdos, aventuras, fotografías,
+besos y días que algún día recordemos con una sonrisa.
+</p>
+
+<p>
+Todavía nos quedan muchísimos momentos por vivir. ❤️
+</p>
+                <button class="volver" data-vista="inicio">← Volver al árbol</button>
+            </article>
+        </section>
+
+        <section id="carta" class="vista">
+            <article class="contenido">
+                <p class="fecha">UN ÚLTIMO DETALLE</p>
+                <h2>Una carta para ti ✉</h2>
+                <div class="foto-dedicatoria"><img src="imagenes/foto1.jpg" alt="Fotografía de nosotras"></div>
+                <p class="dedicatoria"><p>
+No sé si alguna vez encontraré las palabras exactas para explicarte todo lo que
+significas para mí, pero sí sé que quiero seguir compartiendo mi vida contigo.
+</p>
+
+<p>
+Quiero seguir despertándome a tu lado, hacer planes contigo, superar los días
+difíciles, celebrar los buenos y construir un futuro en el que sigamos siendo
+nosotras.
+</p>
+
+<p>
+También quiero cumplir sueños contigo: casarnos, formar nuestra propia familia
+y, si la vida nos lo permite, tener hijos contigo. Me hace ilusión imaginar ese
+futuro a tu lado, porque no quiero que nuestra historia termine en estos 7 años.
+Quiero que estos 7 años sean solamente el principio.
+</p>
+
+<p>
+Gracias por estos años, por tu cariño, por tu paciencia y por todos los momentos
+que hemos compartido. Gracias por ser tú.
+</p>
+
+<p>
+Te quiero hoy, te quiero después de 7 años y quiero seguir eligiéndote durante
+todos los años que nos queden por vivir.
+
+<p>
+Siempre contigo. ❤️
+</p>
+                <button class="volver" data-vista="inicio">← Volver al árbol</button>
+            </article>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
