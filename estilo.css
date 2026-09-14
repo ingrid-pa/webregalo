@@ -181,7 +181,8 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
 @keyframes flotar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes brillo { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
 @keyframes subir { 0% { transform: translateY(0) rotate(0); opacity: 0; } 15% { opacity: .65; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
-.menu-arbol { grid-template-columns: repeat(2, 1fr); max-width: 420px; margin-top: -15px; }
+@media (max-width: 900px) {
+    .menu-arbol { grid-template-columns: repeat(2, 1fr); max-width: 420px; margin-top: -15px; }
     .boton-arbol { width: 135px; height: 135px; }
     .boton-arbol:nth-child(5) { grid-column: 1 / -1; }
 }
