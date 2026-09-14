@@ -8,32 +8,36 @@ function mostrarVista(id) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+// Modificamos el evento de los botones para que activen la música al pulsar
 document.querySelectorAll("[data-vista]").forEach(elemento => {
     elemento.addEventListener("click", () => {
         mostrarVista(elemento.dataset.vista);
+        // Intentar reproducir la música inmediatamente cuando se pulse un botón
+        iniciarMusicaAlInteractuar();
     });
 });
 
-// FUNCIÓN PARA ACTIVAR LA MÚSICA CONTINUA
-function iniciarMusica() {
-    if (audio && audio.paused) {
-        audio.play()
-            .then(() => {
-                // Si arranca con éxito, quitamos los escuchadores para no repetir esta función
-                document.removeEventListener("click", iniciarMusica);
-                document.removeEventListener("touchstart", iniciarMusica);
-            })
-            .catch(() => {
-                console.info("Esperando a que el usuario interactúe para reproducir el audio.");
-            });
+// Función infalible al hacer clic en los menús
+function iniciarMusicaAlInteractuar() {
+    if (audio) {
+        audio.muted = false; // Forzamos a quitar cualquier silencio residual
+        if (audio.paused) {
+            audio.play()
+                .then(() => {
+                    console.log("Música iniciada con éxito gracias a la interacción.");
+                })
+                .catch(error => {
+                    console.error("Fallo al reproducir el audio: ", error);
+                });
+        }
     }
 }
 
-// 1. Intenta reproducir automáticamente nada más cargar la web
+// Intentar reproducción automática por si el navegador lo permite de primeras
 window.addEventListener("load", () => {
-    iniciarMusica();
-    
-    // 2. Si el navegador lo bloqueó, se activará al primer clic o toque en la pantalla
-    document.addEventListener("click", iniciarMusica);
-    document.addEventListener("touchstart", iniciarMusica); // Especial para móviles
+    if (audio) {
+        audio.play().catch(() => {
+            console.info("Reproducción automática bloqueada. Esperando a que el usuario pulse un botón.");
+        });
+    }
 });
