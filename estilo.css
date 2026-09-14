@@ -165,6 +165,8 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
     font-size: 26px;
     opacity: 0;
     pointer-events: none;
+    z-index: 1;
+    will-change: transform, opacity;
     animation: subir 12s linear infinite;
     animation-delay: var(--delay);
 }
@@ -191,10 +193,6 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
     .boton-arbol { width: 125px; height: 125px; }
     .galeria { grid-template-columns: 1fr; }
 }
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-}
-
 /* ==========================================================================
    PANTALLA DE BIENVENIDA INTEGRADA CON EL ESTILO DE LA WEB
    ========================================================================== */
