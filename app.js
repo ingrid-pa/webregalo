@@ -1,3 +1,7 @@
+document.addEventListener("click", () => {
+    if (audio) { audio.muted = false; }
+}, { once: true });
+
 const audio = document.getElementById("musica");
 const vistas = document.querySelectorAll(".vista");
 
