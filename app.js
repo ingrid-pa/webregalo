@@ -46,14 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const pantalla = document.getElementById('pantalla-bienvenida');
     const musica = document.getElementById('musica');
 
-    // Al hacer clic en cualquier parte de la pantalla de bienvenida
-    pantalla.addEventListener('click', () => {
-        // 1. Intenta reproducir la música
-        musica.play().catch(error => {
+    // Función unificada para activar la música y quitar la pantalla
+    function entrarALaWeb() {
+        // 1. Forzar la reproducción INMEDIATAMENTE al tocar (vital para móviles)
+        musica.play().then(() => {
+            console.log("Música reproduciéndose correctamente.");
+        }).catch(error => {
             console.log("Error al reproducir el audio: ", error);
         });
 
-        // 2. Desvanece la pantalla con la animación CSS
+        // 2. Después de activar el audio, quitamos la pantalla de bienvenida
         pantalla.classList.add('ocultar');
-    });
-});
+
+        // 3. Limpiamos los eventos para que no se vuelvan a ejecutar
+        pantalla.removeEventListener('click', entrarALaWeb);
+        pantalla.removeEventListener('touchstart', entrarALaWeb);
+    }
+
+    // Escuchamos tanto el clic (PC) como el toque táctil (Móviles)
+    pantalla.addEventListener('click', entrarALaWeb);
+    pantalla.addEventListener('touchstart', entrarALaWeb, { passive: true });
+
