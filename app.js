@@ -14,12 +14,26 @@ document.querySelectorAll("[data-vista]").forEach(elemento => {
     });
 });
 
-// Intento de reproducción automática al abrir la web.
-// Algunos navegadores bloquean el audio con sonido hasta que haya
-// una interacción del usuario. La navegación entre apartados no
-// recarga la página, así que la canción no se reinicia.
+// FUNCIÓN PARA ACTIVAR LA MÚSICA CONTINUA
+function iniciarMusica() {
+    if (audio && audio.paused) {
+        audio.play()
+            .then(() => {
+                // Si arranca con éxito, quitamos los escuchadores para no repetir esta función
+                document.removeEventListener("click", iniciarMusica);
+                document.removeEventListener("touchstart", iniciarMusica);
+            })
+            .catch(() => {
+                console.info("Esperando a que el usuario interactúe para reproducir el audio.");
+            });
+    }
+}
+
+// 1. Intenta reproducir automáticamente nada más cargar la web
 window.addEventListener("load", () => {
-    audio.play().catch(() => {
-        console.info("El navegador ha bloqueado la reproducción automática con sonido.");
-    });
+    iniciarMusica();
+    
+    // 2. Si el navegador lo bloqueó, se activará al primer clic o toque en la pantalla
+    document.addEventListener("click", iniciarMusica);
+    document.addEventListener("touchstart", iniciarMusica); // Especial para móviles
 });
