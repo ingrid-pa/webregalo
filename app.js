@@ -42,22 +42,33 @@ window.addEventListener("load", () => {
     }
 });
 
+// Esperamos de forma segura a que todo el HTML esté cargado
 document.addEventListener('DOMContentLoaded', () => {
     const pantalla = document.getElementById('pantalla-bienvenida');
     const musica = document.getElementById('musica');
 
+    // Comprobamos que ambos elementos existan en la página
     if (pantalla && musica) {
-        // Usamos una sola función directa sin bloquear eventos nativos
-        pantalla.addEventListener('click', () => {
-            
-            // 1. Intentar reproducir la música inmediatamente
+        
+        // Creamos la función que activa todo al pulsar
+        function abrirRegalo() {
+            // 1. Arrancar el audio de inmediato (Indispensable para móviles)
             musica.play()
-                .then(() => console.log("¡Música iniciada con éxito!"))
-                .catch(err => console.log("Error de reproducción: ", err));
+                .then(() => console.log("Música iniciada correctamente"))
+                .catch(err => console.log("El navegador bloqueó el audio: ", err));
 
-            // 2. Ocultar la pantalla de bienvenida con la clase CSS
+            // 2. Ocultar la pantalla con tu hermoso diseño degradado
             pantalla.classList.add('ocultar');
-        });
+
+            // 3. Quitamos los oyentes para que no se repita la acción si se pulsa dos veces
+            pantalla.removeEventListener('click', abrirRegalo);
+            pantalla.removeEventListener('touchstart', abrirRegalo);
+        }
+
+        // Evento para ordenadores (Click de ratón)
+        pantalla.addEventListener('click', abrirRegalo);
+        
+        // Evento para móviles (Toque táctil con el dedo)
+        pantalla.addEventListener('touchstart', abrirRegalo, { passive: true });
     }
 });
-
