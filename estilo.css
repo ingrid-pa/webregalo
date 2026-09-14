@@ -162,6 +162,8 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
     bottom: -40px;
     left: var(--pos);
     color: #efb4cd;
+    font-family: Georgia, "Times New Roman", serif;
+    font-variant-emoji: text;
     font-size: 26px;
     opacity: 0;
     pointer-events: none;
