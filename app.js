@@ -46,24 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const pantalla = document.getElementById('pantalla-bienvenida');
     const musica = document.getElementById('musica');
 
-    // Función unificada para activar la música y quitar la pantalla
-    function entrarALaWeb() {
-        // 1. Forzar la reproducción INMEDIATAMENTE al tocar (vital para móviles)
-        musica.play().then(() => {
-            console.log("Música reproduciéndose correctamente.");
-        }).catch(error => {
-            console.log("Error al reproducir el audio: ", error);
-        });
+    if (pantalla && musica) {
+        function iniciarWeb(e) {
+            // Detiene cualquier comportamiento extraño del navegador móvil
+            if (e) e.preventDefault(); 
+            
+            // 1. Activar la música de inmediato
+            musica.play().then(() => {
+                console.log("Audio iniciado con éxito.");
+            }).catch(error => {
+                console.log("El navegador requería más interacción: ", error);
+            });
 
-        // 2. Después de activar el audio, quitamos la pantalla de bienvenida
-        pantalla.classList.add('ocultar');
+            // 2. Ocultar la pantalla
+            pantalla.classList.add('ocultar');
 
-        // 3. Limpiamos los eventos para que no se vuelvan a ejecutar
-        pantalla.removeEventListener('click', entrarALaWeb);
-        pantalla.removeEventListener('touchstart', entrarALaWeb);
+            // 3. Remover los disparadores para que no se ejecute dos veces
+            pantalla.removeEventListener('click', iniciarWeb);
+            pantalla.removeEventListener('touchstart', iniciarWeb);
+        }
+
+        // Soporte completo para PC y Móviles táctiles
+        pantalla.addEventListener('click', iniciarWeb);
+        pantalla.addEventListener('touchstart', iniciarWeb, { passive: false });
     }
-
-    // Escuchamos tanto el clic (PC) como el toque táctil (Móviles)
-    pantalla.addEventListener('click', entrarALaWeb);
-    pantalla.addEventListener('touchstart', entrarALaWeb, { passive: true });
-
+});

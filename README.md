@@ -19,5 +19,3 @@ PARA AÑADIR LA CANCIÓN:
 Si el navegador bloquea el sonido, tendrás que iniciar la reproducción
 desde los controles del propio navegador o permitir el audio para esa
 página.
-
-.
