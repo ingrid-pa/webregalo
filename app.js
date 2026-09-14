@@ -1,7 +1,3 @@
-document.addEventListener("click", () => {
-    if (audio) { audio.muted = false; }
-}, { once: true });
-
 const audio = document.getElementById("musica");
 const vistas = document.querySelectorAll(".vista");
 
@@ -44,4 +40,20 @@ window.addEventListener("load", () => {
             console.info("Reproducción automática bloqueada. Esperando a que el usuario pulse un botón.");
         });
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const pantalla = document.getElementById('pantalla-bienvenida');
+    const musica = document.getElementById('musica');
+
+    // Al hacer clic en cualquier parte de la pantalla de bienvenida
+    pantalla.addEventListener('click', () => {
+        // 1. Intenta reproducir la música
+        musica.play().catch(error => {
+            console.log("Error al reproducir el audio: ", error);
+        });
+
+        // 2. Desvanece la pantalla con la animación CSS
+        pantalla.classList.add('ocultar');
+    });
 });

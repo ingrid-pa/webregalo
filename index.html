@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <audio id="musica" src="musica.mp3" loop autoplay muted></audio>
+    <div id="pantalla-bienvenida">
+        <div class="caja-bienvenida">
+            <span class="corazon-click">❤️</span>
+            <p class="texto-click">Haz clic en el corazón para abrir tu regalo</p>
+        </div>
+    </div>
+
+    <audio id="musica" src="musica.mp3" loop preload="auto"></audio>
 
     <div class="corazones" aria-hidden="true">
         <span>♡</span><span>♥</span><span>♡</span>

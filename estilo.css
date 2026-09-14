@@ -193,3 +193,51 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Pantalla de bienvenida que cubre toda la web */
+#pantalla-bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcf6f8; /* Un fondo pastel a juego con tu web */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Asegura que esté por encima de todo */
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.caja-bienvenida {
+    text-align: center;
+    cursor: pointer;
+}
+
+.corazon-click {
+    font-size: 80px;
+    display: inline-block;
+    animation: latido 1.2s infinite; /* Hace que el corazón lata */
+}
+
+.texto-click {
+    font-family: sans-serif; /* O la tipografía que uses en tu web */
+    color: #6b4657;
+    font-size: 18px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+/* Animación de latido para el corazón */
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Clase para desvanecer la pantalla */
+#pantalla-bienvenida.ocultar {
+    opacity: 0;
+    visibility: hidden;
+}
+
