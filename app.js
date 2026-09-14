@@ -47,27 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const musica = document.getElementById('musica');
 
     if (pantalla && musica) {
-        function iniciarWeb(e) {
-            // Detiene cualquier comportamiento extraño del navegador móvil
-            if (e) e.preventDefault(); 
+        // Usamos una sola función directa sin bloquear eventos nativos
+        pantalla.addEventListener('click', () => {
             
-            // 1. Activar la música de inmediato
-            musica.play().then(() => {
-                console.log("Audio iniciado con éxito.");
-            }).catch(error => {
-                console.log("El navegador requería más interacción: ", error);
-            });
+            // 1. Intentar reproducir la música inmediatamente
+            musica.play()
+                .then(() => console.log("¡Música iniciada con éxito!"))
+                .catch(err => console.log("Error de reproducción: ", err));
 
-            // 2. Ocultar la pantalla
+            // 2. Ocultar la pantalla de bienvenida con la clase CSS
             pantalla.classList.add('ocultar');
-
-            // 3. Remover los disparadores para que no se ejecute dos veces
-            pantalla.removeEventListener('click', iniciarWeb);
-            pantalla.removeEventListener('touchstart', iniciarWeb);
-        }
-
-        // Soporte completo para PC y Móviles táctiles
-        pantalla.addEventListener('click', iniciarWeb);
-        pantalla.addEventListener('touchstart', iniciarWeb, { passive: false });
+        });
     }
 });
+
