@@ -265,3 +265,21 @@ h2 { color: #573247; font-size: clamp(38px, 7vw, 65px); margin-bottom: 20px; }
     pointer-events: none !important;
 }
 
+.icono {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono svg {
+    width: 27px;
+    height: 27px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
